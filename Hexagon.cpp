@@ -10,7 +10,7 @@
 #include <iostream>
 using namespace std;
 
-const int MAX = 83;
+const int MAX = 29;
 const float ORTH = MAX * 1.0;
 int arr[MAX];
 
