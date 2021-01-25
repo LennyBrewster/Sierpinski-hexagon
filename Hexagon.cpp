@@ -21,6 +21,9 @@ void loader(){
       else
         arr[i] = 2;
 
+  cout << "Press 's' for a serpinski triangle.\n";
+  cout << "Press 'r' for a random base.\n";
+
 }
 
 void keyboard(unsigned char key, int x, int y)
