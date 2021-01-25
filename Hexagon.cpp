@@ -10,18 +10,35 @@
 #include <iostream>
 using namespace std;
 
-const int MAX = 29;
+const int MAX = 18 * pow(3,1);
 const float ORTH = MAX * 1.0;
 int arr[MAX];
 
 void loader(){
   for(int i = 0; i < MAX; i++)
-      arr[i] = (rand() % 3) + 1;
-      // if(i != MAX / 2)
-      //   arr[i] = 1;
-      // else
-      //   arr[i] = 2;
+    if(i != MAX / 2)
+        arr[i] = 1;
+      else
+        arr[i] = 2;
+
 }
+
+void keyboard(unsigned char key, int x, int y)
+{
+    if(key == 'r') {
+      for(int i = 0; i < MAX; i++)
+          arr[i] = (rand() % 3) + 1;
+    } else if(key == 's') {
+      for(int i = 0; i < MAX; i++)
+        if(i != MAX / 2)
+            arr[i] = 1;
+          else
+            arr[i] = 2;
+    }
+    glutPostRedisplay();
+
+}
+
 // Init function for OpenGL
 void init()
 {
@@ -93,6 +110,7 @@ int main(int argc, char *argv[])
    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
    glutCreateWindow("hexagon");
    glutDisplayFunc(display2);
+   glutKeyboardFunc(keyboard);
    init();
    glutMainLoop();
    return 0;
